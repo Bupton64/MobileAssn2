@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         mPosition = photoGrid.getFirstVisiblePosition();
-        mCursor.close();
+        //mCursor.close();
     }
 
     @Override
@@ -215,6 +215,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         init();
         photoGrid.setSelection(mPosition);
+        mMemoryCache.evictAll();
     }
 
     /**
